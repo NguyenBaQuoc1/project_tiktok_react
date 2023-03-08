@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import Header from "˜/component/Layout/components/Header"
+import Header from "../HeaderOnly/Header";
 
 
 function DefautLayout( {children} ) {
