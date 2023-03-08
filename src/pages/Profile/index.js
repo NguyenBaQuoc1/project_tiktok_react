@@ -1,7 +1,7 @@
-function Search() {
+function Profile() {
     return ( 
-        <h2>Search Pgae</h2>
+        <h2>Profile Pgae</h2>
      );
 }
 
-export default Search;
+export default Profile;
