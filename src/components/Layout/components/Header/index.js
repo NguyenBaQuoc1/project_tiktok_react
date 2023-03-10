@@ -1,9 +1,12 @@
-import styles from './'
-import classNames from "classnames";
+import classNames from "classnames/bind";
+import styles from './Header.module.scss'
 
 const cx = classNames.bind(styles)
+
 function Header() {
-    return <header className={cx('wrapper')}>nguyenbaquoc</header>;
+    return <header className={cx('wrapper')}>
+        header
+    </header> ;
 }
 
 export default Header;
