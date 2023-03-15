@@ -10,6 +10,7 @@ function DefautLayout( {children} ) {
                     {children}
                 </div>
             </div>
+            <Header/>
         </div>
     )
 }
