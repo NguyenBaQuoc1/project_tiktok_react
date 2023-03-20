@@ -8,6 +8,7 @@
     --search-height : 46px;
     --search-top-spacer : 9px;
     --search-button-with:52px;
+    background-color: #fff;
 
     // align-items: center;
 }
@@ -25,9 +26,16 @@
     
 }
 
+.search,
+.search-result{
+    width: 361px;
+    cursor: pointer;
+    // margin: 10px;
+}
+
+
 .search {
     position: relative;
-    width: 500px;
     height: var(--search-height);
     padding-left: 16px;
     display: flex;
@@ -38,7 +46,7 @@
         flex: 1;
         height: 100%;
         color: var(--black);
-        font-size: 1.6rem;
+        font-size: 1rem;
         border: none;
         outline: none;
         background-color: transparent;
@@ -64,6 +72,13 @@
         border: 1.5px solid #ccc;
     }
 }
+
+.search-title{
+    color: #a5a5a5;
+    font-size: 16px;
+    margin: 0px 10px;
+}
+
 
 .clear ,
 .loading{

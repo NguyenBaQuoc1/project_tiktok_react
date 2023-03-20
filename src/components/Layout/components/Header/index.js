@@ -4,8 +4,11 @@ import styles from './Header.module.scss';
 import images from "../../../../accsets/images";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark , faSpinner , faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Wrapper as PopperWrapper } from "../../../Popper";
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; 
+import AccountItem from "../../../AccountItem";
+import Button from "../../../Button";
 
 
 const cx = classNames.bind(styles)
@@ -17,7 +20,7 @@ function Header() {
         setTimeout(() => {
             setSearchResult([1,2,3])
         },3000) 
-    })
+    },[])
     return <header className={cx('wrapper')}>
         <div className={cx('inner')}>
             
@@ -26,11 +29,19 @@ function Header() {
             </div>
 
             <Tippy
+                interactive
                 visible={searchResult.length > 0}
                 render={attrs => (
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        My tippy box
-                    </div>
+                    <PopperWrapper >
+                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                            <h4 className={cx('search-title')}> Accounts</h4>
+                            <AccountItem></AccountItem>
+                            <AccountItem></AccountItem>
+                            <AccountItem></AccountItem>
+                            <AccountItem></AccountItem>
+
+                        </div>
+                    </PopperWrapper>
             )}>
                 <div className={cx('search')}>
                     <input placeholder="Search accounts and videos" spellCheck={false}/> 
@@ -44,12 +55,13 @@ function Header() {
                     <button className={cx('search-btn')}>
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     </button>
-            </div>
+                </div>
             </Tippy>
 
             <div className={cx('action')}>
-                a 
-                a
+                <Button text >Upload</Button>
+                <Button primary  onClick={() => {alert('hello')}} >Log In</Button>
+
             </div>
         </div>
     </header> ;
