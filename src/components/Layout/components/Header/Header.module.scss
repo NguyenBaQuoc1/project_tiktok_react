@@ -16,14 +16,16 @@
 .inner{
     height: 100%;
     width: 70%;
+    padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.action,
 .logo {
-    
-    
+    display: flex;
+    align-items: center;
 }
 
 .search,
@@ -117,3 +119,12 @@ a[href] {
     color: var(--text-color);
     text-decoration: none;
 }
+
+.more-btn {
+    margin-left: 15px;
+    font-size: 2rem;
+    background-color: transparent;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
