@@ -20,10 +20,39 @@ html {
     font-size: 62,5%;
 }
 
+
+
 body {
-    font-family: 'Roboto' , sans-serif;
+    font-family: 'ProximaNova' , sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
+}
+
+body{ 
+    .tippy-box {
+        background-color: #878787;
+    }
+    .tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+        top: -8px;
+        left: 0;
+        border-width: 0 8px 8px;
+        color: #878787;
+        border-bottom-color: initial;
+        transform-origin: center bottom;
+    }
+}
+
+//font 
+@font-face{
+    font-family: ProximaNova;
+    src: url('/accsets/font/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: ProximaNova;
+    src: url('/accsets/font/ProximaNova-Semibold.woff2');
+    font-weight: 700;
 }

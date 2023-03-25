@@ -1,4 +1,5 @@
 .wrapper {
+    font-family: 'ProximaNova';
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -87,3 +88,9 @@
     color: #FE2C55;
 }
 
+
+body{ 
+    .tippy-box {
+        background-color: #ccc;
+    }
+}
