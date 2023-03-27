@@ -1,7 +1,7 @@
 function Profile() {
-    return ( 
+    return (
         <h2>Profile Pgae</h2>
-     );
+    );
 }
 
 export default Profile;
