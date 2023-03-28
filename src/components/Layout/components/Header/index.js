@@ -144,7 +144,7 @@ function Header() {
                             </Tippy>
                             <Tippy content="Message" placement="bottom">
                                 <button className={cx('btn-action')}>
-                                    <MessageIcon/>
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                         </>
