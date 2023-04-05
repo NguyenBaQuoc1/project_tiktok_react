@@ -1,6 +1,4 @@
-import { Wrapper as PopperWrapper } from '../../../Popper';
 import HeadlessTippy from '@tippyjs/react/headless';
-import AccountItem from '../../../AccountItem';
 import {
     faCircleXmark,
     faSpinner,
@@ -9,7 +7,14 @@ import {
 import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+
+
+import { Wrapper as PopperWrapper } from '../../../Popper';
 import styles from './Search.module.scss'
+import AccountItem from '../../../AccountItem';
+import { useDebounce } from '../../../../hooks';
+import * as requets from '../../../../utils/requets';
 
 const cx = classNames.bind(styles)
 function Search(){
@@ -18,23 +23,27 @@ function Search(){
     const [showResult , setshowResult ] = useState(true);
     const [loading , setloading ] = useState(false);
 
-
+    const debounced = useDebounce(searchValue , 500)
 
     const focusInput = useRef()
 
     useEffect(()=>{
-        if(!searchValue.trim()){
+        if(!debounced.trim()){
             return;
         }
         setloading(true)
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then(res => res.json())
+        requets.get(`users/search`,{
+            params: {
+                q:debounced,
+                type : 'less'
+            }}
+        )
             .then((res) => {
-                // console.log(res.data)
+                console.log(res)
                 setSearchResult(res.data)
                 setloading(false)
             })
-    },[searchValue])
+    },[debounced])
 
 
     const handelClearSearch = () => {
