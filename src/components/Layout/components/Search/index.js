@@ -16,20 +16,29 @@ function Search(){
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult , setshowResult ] = useState(true);
+    const [loading , setloading ] = useState(false);
+
 
 
     const focusInput = useRef()
 
     useEffect(()=>{
-        setTimeout(()=>{
-            setSearchResult([1,2,3,4])
-        },0)
-    })
+        if(!searchValue.trim()){
+            return;
+        }
+        setloading(true)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+            .then(res => res.json())
+            .then((res) => {
+                // console.log(res.data)
+                setSearchResult(res.data)
+                setloading(false)
+            })
+    },[searchValue])
 
 
     const handelClearSearch = () => {
         setSearchValue('');
-        setSearchValue([]);
         focusInput.current.focus()
     }
 
@@ -45,10 +54,11 @@ function Search(){
                         <PopperWrapper>
                             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                                 <h4 className={cx('search-title')}> Accounts</h4>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
+                                {
+                                    searchResult.map((pev)=>(
+                                        <AccountItem key={pev.id} data={pev} />
+                                    ))
+                                }
                             </div>
                         </PopperWrapper>
                     )}
@@ -58,18 +68,18 @@ function Search(){
                         <input 
                             ref={focusInput}
                             value={searchValue} 
-                            onChange={(e)=>{setSearchValue(e.target.value)}}  
+                            onChange={(e)=>(setSearchValue(e.target.value))}  
                             placeholder="Search accounts and videos" 
                             spellCheck={false} 
                             onFocus={()=>{setshowResult(true)}}
                         />
                         {/* clear input */}
-                        {!!searchValue && (
+                        {!!searchValue && !loading && (
                             <button className={cx('clear') } onClick={handelClearSearch}>
                                 <FontAwesomeIcon  icon={faCircleXmark}  />
                             </button>
                         )}
-                        {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                        {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                         {/* search */}
 
                         <button className={cx('search-btn')}>

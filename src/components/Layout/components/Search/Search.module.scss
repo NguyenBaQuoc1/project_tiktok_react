@@ -70,6 +70,22 @@
     top: 50%;
     transform: translateY(-50%);
     color: #ccc;
+    cursor: pointer;
+}
+
+.loading {
+    width: 13px;
+    height: 13px;
+    animation:  pinner 0.8s linear infinite;
+}
+
+@keyframes pinner {
+    from{
+        transform: translateY(-50%) translateX(-50%) rotate(0);
+    }
+    to{
+        transform: translateY(-50%) translateX(-50%) rotate(360deg);
+    }
 }
 
 .search-btn {
