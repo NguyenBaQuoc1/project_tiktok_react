@@ -125,7 +125,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/2cff0dfad160588efa884d00e64dd568~c5_100x100.jpeg?x-expires=1679796000&x-signature=S7vnMDYoSkUSUz38fBF5TWjm3FY%3D"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/2cff0dfad160588efa884d00e64dd568~c5_100x100.jpeg?x-expires=1680919200&x-signature=bXlbUd7QLP4umZIT5Lo1PXUnrUo%3D"
                                 className={cx('user-avatar')}
                             />
                         ) : (

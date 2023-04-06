@@ -32,17 +32,22 @@ function Search(){
             return;
         }
         setloading(true)
-        requets.get(`users/search`,{
-            params: {
-                q:debounced,
-                type : 'less'
-            }}
-        )
-            .then((res) => {
-                console.log(res)
+        const fetchApi = async () => {
+            try {
+                const res = await requets.get(`users/search`,{
+                    params: {
+                        q:debounced,
+                        type : 'less'
+                    }}
+                )
                 setSearchResult(res.data)
                 setloading(false)
-            })
+            } catch (error) {
+                setloading(false)
+            }
+        }
+        fetchApi()
+            
     },[debounced])
 
 
@@ -54,6 +59,8 @@ function Search(){
     const handelOutSide = () =>{
         setshowResult(false)
     }
+
+    console.log(searchResult)
 
     return(
         <HeadlessTippy

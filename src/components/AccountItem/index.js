@@ -7,16 +7,16 @@ import styles from "./AccountItem.module.scss"
 const cx = classNames.bind(styles)
 
 function AccountItem(pev) {
-    const userAccout = pev.data
+    const userAccount = pev.data
     return (
         <div className={cx('wrapper')}>
-            <Image className={cx('avatar')} src={userAccout.avatar} alt={userAccout.full_name}/>
+            <Image className={cx('avatar')} src={userAccount.avatar} alt={userAccount.full_name}/>
             <div className={cx('infor')} >
                 <p className={cx('name')}>
-                    <span>{userAccout.full_name}</span>
-                    {userAccout.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle}/> }
+                    <span>{userAccount.full_name}</span>
+                    {userAccount.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle}/> }
                 </p>
-                <span className={cx('user-name')}>{userAccout.nickname}</span>
+                <span className={cx('user-name')}>{userAccount.nickname}</span>
             </div>
         </div>
     )
