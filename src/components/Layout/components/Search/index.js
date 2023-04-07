@@ -44,6 +44,7 @@ function Search(){
                 setloading(false)
             } catch (error) {
                 setloading(false)
+                
             }
         }
         fetchApi()
